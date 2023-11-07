@@ -5,5 +5,17 @@
     "pg": "^8.11.3",
     "pool": "^0.4.1",
     "sequelize": "^6.34.0"
-  }
+  },
+  "name": "projetopacientes",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
