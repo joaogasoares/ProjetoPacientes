@@ -7,8 +7,8 @@ const patientRouter = express.Router();
 
 patientRouter.use(bodyParser.json());
 
-patientRouter.route('/')
-.get(async (req,res,next) =>{
+patientRouter.route('/')        // CRUD
+.get(async (req,res,next) =>{   // READ
     try {
         const {rows} = await pool.query('SELECT * FROM patient')
         res.send(rows);
@@ -17,7 +17,7 @@ patientRouter.route('/')
         console.log(error);
     }
 })
-.post(async (req,res,next) =>{
+.post(async (req,res,next) =>{    // CREATE
     try {
         const { nombre, cedula, edad } = req.body;
         await pool.query(
@@ -29,7 +29,7 @@ patientRouter.route('/')
         console.log(error);
     }
 })
-.put(async (req,res,next) =>{
+.put(async (req,res,next) =>{      // UPDATE
     try {
         const { nome, documento } = req.body;
         await pool.query(`UPDATE patient SET nome = '${nome}' WHERE documento = '${cedula}'`)
@@ -39,8 +39,8 @@ patientRouter.route('/')
         console.log(error);
     }
 })
-.delete(async (req,res,next) =>{
-    try {
+.delete(async (req,res,next) =>{    // DELETE
+    try { 
         const { documento } = req.body;
         await pool.query(`DELETE FROM patient WHERE documento = '${documento}'`);
     }
